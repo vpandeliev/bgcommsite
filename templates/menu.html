@@ -3,14 +3,14 @@
 
 	<div id="sidebar"> <ul>
 
- <li> <h2>{{affiliates}}</h2> <ul> {% for item in aff %} {% if bg %} <li><a
+ <li> <ul> {% for item in aff %} {% if bg %} <li><a class="secondarymenu"
 href="/{{ prefix }}/{{item.link}}">{{item.bg}}</a></li> {% else %} {% if en %} <li><a
-href="/{{ prefix }}/{{item.link}}">{{item.en}}</a></li> {% else %} <li><a
-href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {% endif %} {% endif %} 
+class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.en}}</a></li> {% else %} <li><a
+class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {% endif %} {% endif %} 
 {% endfor %}
 </ul></li>
 
- <li> <h2>{{ad}}</h2>  
+ <li>  
 <ul>
 {%for item in ads%}
 {%ifnotequal item.image ""%}

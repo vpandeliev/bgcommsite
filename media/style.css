@@ -478,6 +478,7 @@ color: #181818;
 }
 #sidebar h2 {
 	height: 38px;
+	
 	padding: 12px 0 0 0px;
 	letter-spacing: -.5px;
 	color: #181818;
@@ -489,12 +490,22 @@ color: #181818;
 	text-align: justify;
 }
 
-#sidebar a {
+/*#sidebar a {
 	border: none;
-}
+	color:#181818;
 
+}*/
+
+.secondarymenu {
+	border: none;
+	color:#181818;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
 #sidebar a:hover {
-	text-decoration: underline;
+	/*text-decoration: underline;*/
+	background: #999999;
 }
 
 
