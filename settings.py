@@ -6,6 +6,7 @@ try:
 except ImportError:
     print u'File settings_local.py is not found. Continuing with production settings.'
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
