@@ -1,0 +1,95 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+	<p>
+			{% if bg %}
+			    <div class="post" style="width:640px;">
+				<h2 class="title"><a href="/bg/events/{{item.id}}">{{ item.namebg }}</a></h2>
+				{%ifequal item.date.time.minute 0%}
+				<p class="date"> На {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+				{%else%}
+				<p class="date"> На {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}} {{oclock}} </p>
+				{%endifequal%}
+				
+				<div class="entry">
+					<p> {{ item.descriptionbg }}</p>
+				<h1> {{address}}</h1>
+				<p> {{item.location}} </p>
+				
+				{%ifnotequal item.contact_name ""%}
+				<h1> {{contactperson}}</h1>
+				<p> За повече информация търсете:<br><br>
+				{{item.contact_name}} <br>
+ 				{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+ 				{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+				{%endifnotequal%}
+					<p><a href="/bg/events" class="links">{{ back }}</a> </p>
+				</div>
+				</div>
+<!--							
+								<div class="entry">
+									<p>This is <strong>Anther  </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)</p>
+									<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+									<p><a href="#" class="links">Read More</a> </p>
+
+								</div>
+-->							
+			{% else %}
+			{% if en %}
+		    <div class="post" style="width:640px;">
+			<h2 class="title"><a href="/en/events/{{item.id}}">{{ item.nameen }}</a></h2>
+			{%ifequal item.date.time.minute 0%}
+			<p class="date"> On {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+			{%else%}
+			<p class="date"> On {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}} </p>
+			{%endifequal%}
+			
+			<div class="entry">
+				<p> {{ item.descriptionen }}</p>
+			<h1> {{address}}</h1>
+			<p> {{item.location}} </p>
+			
+			{%ifnotequal item.contact_name ""%}
+			<h1> {{contactperson}}</h1>
+			<p> For more information contact:<br><br>
+			{{item.contact_name}} <br>
+			{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+			{%endifnotequal%}
+				<p><a href="/en/events" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			{% else %}
+			
+		    <div class="post" style="width:640px;">
+			<h2 class="title"><a href="/fr/events/{{item.id}}">{{ item.namefr }}</a></h2>
+			{%ifequal item.date.time.minute 0%}
+			<p class="date"> Le {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+			{%else%}
+			<p class="date"> Le {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}}  </p>
+			{%endifequal%}
+			
+			<div class="entry">
+				<p> {{ item.descriptionbg }}</p>
+			<h1> {{address}}</h1>
+			<p> {{item.location}} </p>
+			
+			{%ifnotequal item.contact_name ""%}
+			<h1> {{contactperson}}</h1>
+			<p> Pour obtenir plus d'information contactez:<br><br>
+			{{item.contact_name}} <br>
+			{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+			{%endifnotequal%}
+				<p><a href="/fr/events" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			{% endif %}
+			{% endif %}
+	</p>
+	{% endblock %}

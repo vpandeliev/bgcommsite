@@ -1,0 +1,42 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Рекламирайте с нас</h1>
+	<br>
+	<ul><li><b>Цени</b></li>
+		<li>Банер: 60$/година</li>
+		<li>Линк: 30$/година</li>
+		<li>Спонсорски банер: с дарение от 200$/година или повече</li>
+	</ul>
+		
+{%else%}	
+{% if en %}
+<h1> Advertise on our website </h1>
+<br>
+<ul><li><b>Rates</b></li>
+	<li>Banner: 60$/year</li>
+	<li>Link: 30$/year</li>
+	<li>Sponsorship Banner: with donation of 200$ or more</li>
+</ul>
+{% else %}
+<h1> Le site, les ads, l'argent</h1>
+<br>
+
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

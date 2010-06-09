@@ -1,0 +1,34 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+
+	{% if bg %}
+	<h1>Календар</h1><ul>
+	{% for item in events %}
+		<li>{{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}   -   <a href="bg/events/{{item.id}}"> {{item.namebg}} </a></li>
+	{% endfor %}
+	</ul>				
+	{% else %}
+	{% if en %}
+	{% for item in events %}
+		<h1> {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</h1>
+		<p> <a href="en/events/{{item.id}}"> {{item.nameen}} </a> </p>
+	{% endfor %}
+		<a id="har" href="en/events"> {{more}}</a>						
+	{% else %}
+	{% for item in events %}
+		<h1> {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</h1>
+		<p> <a href="fr/events/{{item.id}}"> {{item.namefr}} </a> </p>
+	{% endfor %}
+		<a id="har" href="fr/events"> {{more}}</a>						
+	{% endif %}
+	{% endif %}
+		
+
+</div>
+
+{% endblock %}
