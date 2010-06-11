@@ -14,7 +14,7 @@
 				{%endifequal%}
 				
 				<div class="entry">
-					<p> {{ item.descriptionbg }}</p>
+					<p> {{ item.descriptionbg|safe }}</p>
 				<h1> {{address}}</h1>
 				<p> {{item.location}} </p>
 				
@@ -25,6 +25,43 @@
  				{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
  				{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
 
+				
+				{%endifnotequal%}
+				
+				{%ifnotequal item.cost.count 0%}
+				<h1>{{cost}}</h1>
+				<table>
+				<tr>
+				{%for price in item.cost.all%}
+				<td>{{price}}</td><td>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+				<input type="hidden" name="lc" value="CA">
+				<input type="hidden" name="item_name" value="{{price.category}}">
+				<input type="hidden" name="amount" value="{{price.cost}}">
+				<input type="hidden" name="currency_code" value="CAD">
+				<input type="hidden" name="button_subtype" value="services">
+				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				</form>
+				</td><td>
+				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+				<input type="hidden" name="lc" value="CA">
+				<input type="hidden" name="item_name" value="{{price.category}}">
+				<input type="hidden" name="amount" value="{{price.cost}}">
+				<input type="hidden" name="currency_code" value="CAD">
+				<input type="hidden" name="button_subtype" value="products">
+				<input type="hidden" name="add" value="1">
+				<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				</form>
+				</td>
+				</tr>
+				{%endfor%}
+				</table>
 				{%endifnotequal%}
 					<p><a href="/bg/events" class="links">{{ back }}</a> </p>
 				</div>
@@ -48,7 +85,7 @@
 			{%endifequal%}
 			
 			<div class="entry">
-				<p> {{ item.descriptionen }}</p>
+				<p> {{ item.descriptionen|safe }}</p>
 			<h1> {{address}}</h1>
 			<p> {{item.location}} </p>
 			
@@ -74,7 +111,7 @@
 			{%endifequal%}
 			
 			<div class="entry">
-				<p> {{ item.descriptionbg }}</p>
+				<p> {{ item.descriptionfr|safe }}</p>
 			<h1> {{address}}</h1>
 			<p> {{item.location}} </p>
 			

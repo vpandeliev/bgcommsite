@@ -56,13 +56,14 @@ def render_events(request, lg):
 def a_years():
 	archive_years = []
 	a = Post.objects.order_by("date")[0:1]
-	a = a[0].date.year
-	b = Post.objects.exclude(date__gt=datetime.datetime.now()).order_by("-date")[0:1]
-	b = b[0].date.year
-	for s in range(a,b+1):
-		archive_years.append(s)
-	archive_years.sort()
-	archive_years.reverse()
+	if a.count() > 0:
+		a = a[0].date.year
+		b = Post.objects.exclude(date__gt=datetime.datetime.now()).order_by("-date")[0:1]
+		b = b[0].date.year
+		for s in range(a,b+1):
+			archive_years.append(s)
+		archive_years.sort()
+		archive_years.reverse()
 	return archive_years
 
 def render_archive(request, lg, year):

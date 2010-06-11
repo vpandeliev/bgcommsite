@@ -116,6 +116,7 @@ class Price(models.Model):
 	category = models.CharField('Category',max_length=140)
 	cost = models.IntegerField('Price $')
 	
+	
 	def __unicode__(self):
 		"""docstring for __unicode__"""
 		return u'%s - %s$' % (self.category, self.cost)
@@ -128,7 +129,7 @@ class Event(models.Model):
 	namefr = models.CharField('Title (FR)',max_length=140)
 	descriptionfr = tinymce_models.HTMLField('Text (FR)')
 	location = models.CharField('Aдрес (на латиница)', max_length=400)
-	cost = models.CharField('Цена (на латиница)', max_length=400)
+	cost = models.ManyToManyField(Price, blank=True, null=True)
 	contact_name = models.CharField('Контакт за сведение (име на латиница)', blank=True, max_length=50)
 	contact_email = models.EmailField('Контакт за сведение (e-mail) (optional)', blank=True)
 	contact_phone = models.CharField('Контакт за сведение (phone) (optional)', blank=True, max_length=30)
@@ -142,7 +143,7 @@ class Ad(models.Model):
 	titleen = models.CharField('Заглавие (EN)', max_length=140)
 	titlefr = models.CharField('Заглавие (FR)', max_length=140)
 	location = models.CharField('Aдрес (на латиница) (optional)', max_length=400, blank=True)
-	image = models.CharField('Картинка (качете в /ads/)', max_length=400, blank=True)
+	image = models.FileField('Картинка (качете в /ads/)',upload_to='ads', blank=True)
 	descriptionbg = models.CharField('Текст (BG)', max_length=3000)
 	descriptionen = models.CharField('Текст (EN)', max_length=3000)
 	descriptionfr = models.CharField('Текст (FR)', max_length=3000)

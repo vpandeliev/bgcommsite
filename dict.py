@@ -78,6 +78,7 @@ bgmenu = {
 "submit":"Изпрати",
 "allads": "Всички реклами",
 "adtitle": "Ползвайте тези бизнеси и услуги:",
+"cost": "Цени",
 
 }
 enmenu = {
@@ -122,6 +123,7 @@ enmenu = {
 "submit":"Send",
 "allads": "All ads",
 "adtitle": "Support these Bulgarian businesses:",
+"cost": "Cost",
 }
 frmenu = {
 "aff": affiliates,
@@ -165,5 +167,6 @@ frmenu = {
 "submit":"Envoyez",
 "allads": "Toutes les avertissements",
 "adtitle": "Aidez les firmes bulgares:",
+"cost": "Prix",
 }
 menus = [bgmenu, enmenu, frmenu]

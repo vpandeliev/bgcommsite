@@ -15,7 +15,8 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 <ul>
 {%for item in ads%}
 {%ifnotequal item.image ""%}
-<li><a href="ads/{{item.id}}"><img src="media/ads/{{item.image}}"></img></a></li>
+
+<li><a href="ads/{{item.id}}"><img src="media/{{item.image}}"></img></a></li>
 {%else%}
 
 {% if bg %}

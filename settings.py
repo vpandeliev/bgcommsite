@@ -114,6 +114,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     
 )
 
+#FILEBROWSER_MEDIA_URL = os.path.join(MEDIA_ROOT,'filebrowser')
+
 INSTALLED_APPS = (
     'django.contrib.admin',
 	'django.contrib.auth',
@@ -125,4 +127,5 @@ INSTALLED_APPS = (
 #    'sphene.sphwiki',
 	'bgcomm.posts',
 	'tinymce',	
+	#'filebrowser',
 )
