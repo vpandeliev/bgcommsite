@@ -22,7 +22,7 @@ class SideMenuItem():
 affiliates = [
 SideMenuItem("Танцов състав 'Родина'","Rodina Dance Troupe", "Le danse Rodina","rodina"),
 SideMenuItem("БУРЕТО","Student theatre BURETO", "Theatre d'etudiants BURETO","bureto"),
-SideMenuItem("Училище","School", "L'ecole","school"),
+SideMenuItem("Посолство","Embassy", "L'embassade","embassy"),
 SideMenuItem("Българска Фондация в Отава","Ottawa Region Bulgarian Foundation", "La Fondation Bulgare d'Outaouai","foundation"),
 ]
 
@@ -46,7 +46,7 @@ bgmenu = {
 "home": "Начало",
 "about": "За нас",
 "links": "Връзки",
-"embassy": "Посолство",
+"school": "Училище",
 "photos": "Снимки",
 "contact": "Пишете ни",
 "forum": "Форум",
@@ -76,7 +76,8 @@ bgmenu = {
 "mess":"Съобщение",
 "optional":"незадължително поле",
 "submit":"Изпрати",
-
+"allads": "Всички реклами",
+"adtitle": "Ползвайте тези бизнеси и услуги:",
 
 }
 enmenu = {
@@ -89,7 +90,7 @@ enmenu = {
 "home": "Home",
 "about": "About Us",
 "links": "Links",
-"embassy": "Embassy",
+"school": "School",
 "photos": "Photos",
 "contact": "Contact",
 "forum": "Forum",
@@ -119,6 +120,8 @@ enmenu = {
 "mess":"Message",
 "optional":"optional",
 "submit":"Send",
+"allads": "All ads",
+"adtitle": "Support these Bulgarian businesses:",
 }
 frmenu = {
 "aff": affiliates,
@@ -130,7 +133,7 @@ frmenu = {
 "home": "Acueill",
 "about": "L'about",
 "links": "Les Links",
-"embassy": "L'embassage",
+"school": "L'ecole",
 "photos": "Les Photos",
 "contact": "Contacte",
 "forum": "Forum",
@@ -160,5 +163,7 @@ frmenu = {
 "mess":"Message",
 "optional":"optionnel",
 "submit":"Envoyez",
+"allads": "Toutes les avertissements",
+"adtitle": "Aidez les firmes bulgares:",
 }
 menus = [bgmenu, enmenu, frmenu]

@@ -24,8 +24,11 @@ def langcheck(lg):
 	
 def welcome(request, lg):
 
-	post_list = Post.objects.order_by("-date")[0:5]
-	
+	post_list = Post.objects.exclude(date__gt=datetime.datetime.now()).order_by("-date")[0:5]
+	for x in post_list:
+		x.first_paragraph_bg = x.textbg[0:x.textbg.find("</p>")+4]
+		x.first_paragraph_en = x.texten[0:x.texten.find("</p>")+4]
+		x.first_paragraph_fr = x.textfr[0:x.textfr.find("</p>")+4]
 	poll_list = Poll.objects.filter(active=1).exclude(expirydate__lt=datetime.datetime.now().date()).order_by("-date")[0:1]
 	event_list = Event.objects.exclude(date__lt=datetime.datetime.now().date()).order_by("date")[0:3]
 #	poll_list = Poll.objects.all()
@@ -54,7 +57,7 @@ def a_years():
 	archive_years = []
 	a = Post.objects.order_by("date")[0:1]
 	a = a[0].date.year
-	b = Post.objects.order_by("-date")[0:1]
+	b = Post.objects.exclude(date__gt=datetime.datetime.now()).order_by("-date")[0:1]
 	b = b[0].date.year
 	for s in range(a,b+1):
 		archive_years.append(s)
@@ -70,7 +73,8 @@ def render_thanks(request, lg):
 	return render_to_response("thanks.html", {'years':a_years(), 'ads':update_ads()}, context_instance = RequestContext(request, processors=[langcheck(lg)]))
 	
 def update_ads():
-	return Ad.objects.all().order_by("titlebg").order_by("-image")
+	ads = Ad.objects.all().exclude(expirydate__lt=datetime.datetime.now()).order_by("titlebg").order_by("-image")
+	return ads
 
 def error_gen(lg):
 	if lg=="bg":

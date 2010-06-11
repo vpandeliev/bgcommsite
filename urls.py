@@ -5,8 +5,10 @@ from bgcomm.views import *
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+defaultdict = { 'groupName': 'example' }
 
 urlpatterns = patterns('',
+	
 	(r'^admin/', include(admin.site.urls)),
 	(r'media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
 	('^$', index),

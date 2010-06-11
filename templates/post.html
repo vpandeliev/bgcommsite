@@ -9,8 +9,7 @@
 				<h2 class="title"><a href="/bg/posts/{{item.id}}">{{ item.titlebg }}</a></h2>
 				<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 				<div class="entry">
-					<p> {{ item.textbg }}</p>
-					<p> {{ item.moretextbg }}</p>
+					{{ item.textbg|safe }}
 					<p><a href="/bg" class="links">{{ back }}</a> </p>
 				</div>
 				</div>
@@ -28,8 +27,8 @@
 			<h2 class="title"><a href="/en/posts/{{item.id}}">{{ item.titleen }}</a></h2>
 			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 			<div class="entry">
-				<p> {{ item.texten }}</p>
-				<p> {{ item.moretexten }}</p>
+				{{ item.texten|safe }}
+				
 				<p><a href="/en" class="links">{{ back }}</a> </p>
 			</div>
 			</div>
@@ -39,8 +38,8 @@
 			<h2 class="title"><a href="/fr/posts/{{item.id}}">{{ item.titlefr }}</a></h2>
 			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 			<div class="entry">
-				<p> {{ item.textfr }}</p>
-				<p> {{ item.moretextfr }}</p>
+				{{ item.textfr|safe }}
+				
 				<p><a href="/fr" class="links">{{ back }}</a> </p>
 			</div>
 			</div>

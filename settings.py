@@ -1,6 +1,12 @@
 # Django settings for bgcomm project.
 import os
+#import sys
+
 ROOT_PATH = os.path.dirname(__file__)
+#LIB_PATH = os.path.join(ROOT_PATH, 'sct-0.6','communitytools','sphenecoll')
+#sys.path.append(ROOT_PATH)
+#sys.path.append(LIB_PATH)
+
 try:
     from local_settings import *
 except ImportError:
@@ -15,6 +21,20 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+		'theme_advanced_buttons1' : "bold,italic,underline,strikethrough,|,justifyleft,justifyfull,|cut,copy,paste,pastetext,|,undo,redo,|,link,unlink,anchor,image,search,replace,|,bullist,numlist,|,cleanup,help,code,|,insertdate,inserttime,preview",
+		'theme_advanced_buttons2' : "",
+		'theme_advanced_buttons3': '',
+		'theme_advanced_toolbar_location' : "top",
+		'theme_advanced_toolbar_align' : "left",
+		'theme_advanced_statusbar_location' : "bottom",
+		'theme_advanced_resizing' : 'True',
+}
 
 
 
@@ -49,20 +69,27 @@ MEDIA_URL = 'http://127.0.0.1:8000/media/'
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/amedia/'
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '**qe4h8e#8e^^5+ilz+=jj42x*fk3p87=ls1wnq--kpmg58e0^'
+
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+#	'sphene.community.groupaware_templateloader.load_template_source',
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
+
+
 #     'django.template.loaders.eggs.load_template_source',
 )
 
+
+
 MIDDLEWARE_CLASSES = (
+#	'sphene.community.middleware.ThreadLocals',
+#	'sphene.community.middleware.GroupMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.middleware.doc.XViewMiddleware'
 )
 
 ROOT_URLCONF = 'bgcomm.urls'
@@ -79,9 +106,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
+	'django.core.context_processors.request',
 	'bgcomm.dict.menu_bg',
 	'bgcomm.dict.menu_en',
 	'bgcomm.dict.menu_fr',
+#	'sphene.community.context_processors.navigation',
+    
 )
 
 INSTALLED_APPS = (
@@ -90,5 +120,9 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+#    'sphene.community',
+#    'sphene.sphboard',
+#    'sphene.sphwiki',
 	'bgcomm.posts',
+	'tinymce',	
 )

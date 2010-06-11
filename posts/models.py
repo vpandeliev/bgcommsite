@@ -1,5 +1,8 @@
 # -*- coding: iso-8859-15 -*-
 from django.db import models
+from tinymce import models as tinymce_models
+
+
 import datetime
 
 class Person(models.Model):
@@ -15,7 +18,22 @@ class Person(models.Model):
 	        return u'%s - %s' % (self.namebg, self.posbg)
 
 class Post(models.Model):
-	titlebg = models.CharField('Заглавие (BG)',max_length=140)
+	author = models.CharField('Author', max_length=140)
+	titlebg = models.CharField('Title (BG)',max_length=140)
+	textbg = tinymce_models.HTMLField('Text (BG)')
+	titleen = models.CharField('Title (EN)',max_length=140)
+	texten = tinymce_models.HTMLField('Text (EN)')
+	titlefr = models.CharField('Title (FR)',max_length=140)
+	textfr = tinymce_models.HTMLField('Text (FR)')
+	date = models.DateTimeField('Date and time of release')
+	first_paragraph_bg = None
+	first_paragraph_en = None
+	first_paragraph_fr = None
+	def __unicode__(self):
+	        return u'%s - %s' % (self.titleen, self.date)
+	
+	
+'''	titlebg = models.CharField('Заглавие (BG)',max_length=140)
 	titleen = models.CharField('Заглавие (EN)',max_length=140)
 	titlefr = models.CharField('Заглавие (FR)',max_length=140)
 	author = models.CharField('Автор', max_length=140)
@@ -25,10 +43,9 @@ class Post(models.Model):
 	moretexten = models.CharField('Още текст (EN) (optional)', max_length=30000, blank=True)
 	textfr = models.CharField('Кратък текст (FR)', max_length=3000)
 	moretextfr = models.CharField('Още текст (FR) (optional)', max_length=30000, blank=True)
-	date = models.DateTimeField('Дата (използвайте Today)')
+	date = models.DateTimeField('Дата (използвайте Today)')'''
 	
-	def __unicode__(self):
-	        return u'%s - %s' % (self.titlebg, self.date)
+
 
 class Category(models.Model):
 	titlebg = models.CharField('Категория (BG)',max_length=140, blank=True)
@@ -94,16 +111,24 @@ class Poll(models.Model):
 		else:
 			s = ''
 		return u'%s - %s: %s %s' % (self.name, self.date, r, s)
+
+class Price(models.Model):
+	category = models.CharField('Category',max_length=140)
+	cost = models.IntegerField('Price $')
 	
+	def __unicode__(self):
+		"""docstring for __unicode__"""
+		return u'%s - %s$' % (self.category, self.cost)
+		
 class Event(models.Model):
-	namebg = models.CharField('Събитие (BG)', max_length=140)
-	nameen = models.CharField('Събитие (EN)', max_length=140)
-	namefr = models.CharField('Събитие (FR)', max_length=140)
+	namebg = models.CharField('Title (BG)',max_length=140)
+	descriptionbg = tinymce_models.HTMLField('Text (BG)')
+	nameen = models.CharField('Title (EN)',max_length=140)
+	descriptionen = tinymce_models.HTMLField('Text (EN)')
+	namefr = models.CharField('Title (FR)',max_length=140)
+	descriptionfr = tinymce_models.HTMLField('Text (FR)')
 	location = models.CharField('Aдрес (на латиница)', max_length=400)
 	cost = models.CharField('Цена (на латиница)', max_length=400)
-	descriptionbg = models.CharField('Текст (BG)', max_length=3000)
-	descriptionen = models.CharField('Текст (EN)', max_length=3000)
-	descriptionfr = models.CharField('Текст (FR)', max_length=3000)
 	contact_name = models.CharField('Контакт за сведение (име на латиница)', blank=True, max_length=50)
 	contact_email = models.EmailField('Контакт за сведение (e-mail) (optional)', blank=True)
 	contact_phone = models.CharField('Контакт за сведение (phone) (optional)', blank=True, max_length=30)
