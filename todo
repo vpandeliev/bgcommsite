@@ -18,15 +18,16 @@ TODO:
 - landing page
 - foundation pages
 - add image upload support to posts and events
-- Events - add google maps support and PayPal buttons
-- Database - add keeping track of members interface, add prices to events
+- Events - add google maps support
+- Database - add keeping track of members interface
 - member thanks page
-- random banner rotation - randomize over indices of database SELECT
+- error checking for empty database!!
 - build list-of-ads interface
 - build single ad view
 - surveys
 - Membership toolbar button - appearance? e-mail?
 - google analytics
+- samplead template
 
 
 Началната страница дава избор - BG/EN/FR и също така вход към дружеството или фондацията.
@@ -53,7 +54,6 @@ Google Analytics + Ads
 
 
 Launch Party - наедно с 6 септември да кажем, раздаваме картички с името на сайта, членски карти
-PayPal + FatFreeCart за 
 Членски бонуси - pools на flickr, намаление за концерти, реклама, разпространение, достъп до форума
 Отделно mailing list
 Отчет за всеки концерт - като статия

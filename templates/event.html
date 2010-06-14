@@ -30,39 +30,45 @@
 				
 				{%ifnotequal item.cost.count 0%}
 				<h1>{{cost}}</h1>
+				<p>Цените на билетите са дадени по категории. За да закупите билети онлайн чрез PayPal, ползвайте бутоните вдясно на цените.</p>
 				<table>
 				<tr>
 				{%for price in item.cost.all%}
-				<td>{{price}}</td><td>
+				<td style="padding-right:20px">{{price.category.namebg}}</td>
+				<td style="padding-right:20px">{{price.cost}}$</td>
+				<td>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_xclick">
 				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
 				<input type="hidden" name="lc" value="CA">
-				<input type="hidden" name="item_name" value="{{price.category}}">
+				<input type="hidden" name="item_name" value="{{price.category.nameen}}">
 				<input type="hidden" name="amount" value="{{price.cost}}">
 				<input type="hidden" name="currency_code" value="CAD">
 				<input type="hidden" name="button_subtype" value="services">
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
 				</form>
-				</td><td>
+				</td><td style="padding-right:20px">
 				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_cart">
 				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
 				<input type="hidden" name="lc" value="CA">
-				<input type="hidden" name="item_name" value="{{price.category}}">
+				<input type="hidden" name="item_name" value="{{price.category.nameen}}">
 				<input type="hidden" name="amount" value="{{price.cost}}">
 				<input type="hidden" name="currency_code" value="CAD">
 				<input type="hidden" name="button_subtype" value="products">
 				<input type="hidden" name="add" value="1">
 				<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				</form>
+			
 				</td>
 				</tr>
+				
 				{%endfor%}
 				</table>
 				{%endifnotequal%}
+			
 					<p><a href="/bg/events" class="links">{{ back }}</a> </p>
 				</div>
 				</div>
@@ -97,6 +103,48 @@
 			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
 
 			{%endifnotequal%}
+			
+			{%ifnotequal item.cost.count 0%}
+			<h1>{{cost}}</h1>
+			<p>Ticket prices are given by category. To purchase tickets using PayPal, use the buttons below.</p>
+			<table>
+			<tr>
+			{%for price in item.cost.all%}
+			<td style="padding-right:20px">{{price.category.nameen}}</td>
+			<td style="padding-right:20px">{{price.cost}}$</td>
+			<td>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="services">
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+			<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
+			</form>
+			</td><td style="padding-right:20px">
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="products">
+			<input type="hidden" name="add" value="1">
+			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+			<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			</form>
+		
+			</td>
+			</tr>
+			
+			{%endfor%}
+			</table>
+			{%endifnotequal%}
+			
 				<p><a href="/en/events" class="links">{{ back }}</a> </p>
 			</div>
 			</div>
@@ -123,6 +171,49 @@
 			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
 
 			{%endifnotequal%}
+
+			{%ifnotequal item.cost.count 0%}
+			<h1>{{cost}}</h1>
+			<p>Les prix des billets sont donnees par categorie. Pour acheter les billets, utilisez les claviers dessous</p>
+			<table>
+			<tr>
+			{%for price in item.cost.all%}
+			<td style="padding-right:20px">{{price.category.namefr}}</td>
+			<td style="padding-right:20px">{{price.cost}}$</td>
+			<td>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="services">
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+			<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
+			</form>
+			</td><td style="padding-right:20px">
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="products">
+			<input type="hidden" name="add" value="1">
+			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+			<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			</form>
+		
+			</td>
+			</tr>
+			
+			{%endfor%}
+			</table>
+			{%endifnotequal%}
+			
+			
 				<p><a href="/fr/events" class="links">{{ back }}</a> </p>
 			</div>
 			</div>

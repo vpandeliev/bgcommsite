@@ -20,6 +20,8 @@ urlpatterns = patterns('',
 	(r'^(?P<lg>\w{2})/contacttt$', contacttt),
 	(r'^(?P<lg>\w{2})/archive/(?P<year>[0-9]*)$', render_archive),
 	(r'^(?P<lg>\w{2})/events$', render_events),
+	(r'^(?P<lg>\w{2})/ads/(?P<pid>[0-9]*)$', render_ad),
+	(r'^(?P<lg>\w{2})/ads$', render_ads),
 	(r'^(?P<lg>\w{2})/events/(?P<pid>[0-9]*)$', render_event),
 	(r'^(?P<lg>\w{2})/(?P<page>[a-z0-9]*)$', render),
 	

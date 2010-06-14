@@ -9,54 +9,88 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.en}}</a></li> {%
 class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {% endif %} {% endif %} 
 {% endfor %}
 </ul></li>
+{% if bg %}
+<li>
+	<div id="memberad">
+		<h2>Нашите членове се радват на:</h2>
+			<ul>
+				<li>Отстъпки за билети и реклама</li>
+				<li>Пълен достъп до форума</li>
+				<li>Ексклусивни партита</li>
 
- <li>
-<style="text-align:center;">{{adtitle}} </style>
+			</ul>
+
+
+	<a class="bigbutton" href="/{{prefix}}/join">Запишете се днес! </a>
+	</div>
+</li>
+{%else%}{%if en%}
+<li>
+	<div id="memberad">
+		<h2>Our members enjoy:</h2>
+			<ul>
+				<li>Discounts on tickets and ads</li>
+				<li>Full access to the forum</li>
+				<li>Exclusive events</li>
+
+			</ul>
+
+
+	<a href="/{{prefix}}/join">Join us today! </a>
+	</div>
+</li>
+{%else%}
+<li>
+	<div id="memberad">
+		<h2>Нашите членове се радват на:</h2>
+			<ul>
+				<li>Отстъпки за билети и реклама</li>
+				<li>Пълен достъп до форума</li>
+				<li>Ексклусивни партита</li>
+
+			</ul>
+
+
+	<a class="bigbutton" href="/{{prefix}}/join">Запишете се днес! </a>
+	</div>
+</li>
+{%endif%}{%endif%}
+<li>
+<br/>
 <ul>
 {%for item in ads%}
-{%ifnotequal item.image ""%}
 
-<li><a href="ads/{{item.id}}"><img src="media/{{item.image}}"></img></a></li>
-{%else%}
+<li><a href="ads/{{item.id}}"><img style="height:50px; width:200px" src="media/{{item.image}}"></img></a></li>
 
-{% if bg %}
-<li><a href="ads/{{item.id}}">{{item.titlebg}}</a></li>			
-{%else%}	
-{% if en %}
-<li><a href="ads/{{item.id}}">{{item.titleen}}</a></li>
-{% else %}
-<li><a href="ads/{{item.id}}">{{item.titlefr}}</a></li>
-{%endif%}
-{%endif%}
-{%endifnotequal%}
 
 {%endfor%}
-<li><a href="/{{prefix}}/ads"><b>{{allads}}</b></a></li>
-<li><a href="/{{prefix}}/advertise"><b>{{adcall}}</b></a></li>
+<li style="height:16px"><a class="secondarymenu" href="/{{prefix}}/ads" >{{allads}}</a></li>
+<li><a class="secondarymenu" href="/{{prefix}}/advertise">{{adcall}}</a></li>
  </ul> </li> 
-
-<li> <h2>{{sps}}</h2> {{sponsors}}
+<!--><li> <h2>{{sps}}</h2> {{sponsors}}
 	<ul>
 		
-	<li><img width="30" src="/media/gatineau.jpg"></img><img src="/media/ottawa.jpg"></img></li> </ul> </li> 
-	<li><center>
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<li><img src="/media/gatineau.jpg"></img><img src="/media/ottawa.jpg"></img></li> </ul> </li>
+	--> 
+	<li>Българското дружество е благотворителна организация. </li>
+<div class="memberad">	<li><center>
+	<form action="https://www.paypal.com/cgi-bin/webscr" target="blank" method="post">
 	<input type="hidden" name="cmd" value="_donations">
 	<input type="hidden" name="business" value="vpandeliev@gmail.com">
 	<input type="hidden" name="lc" value="CA">
-	<input type="hidden" name="item_name" value="Bulgarian Community in Ottawa">
+	<input type="hidden" name="item_name" value="National Capital Region Bulgarian Community">
 	<input type="hidden" name="no_note" value="0">
 	<input type="hidden" name="currency_code" value="CAD">
 	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-	<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 	
 	</form>
 	</center>
-	</li>
+	</li></div>
 <li>
 <h2>{{archive}}</h2> <ul> 
 {% for item in years %}
-	<li><a href="/{{prefix}}/archive/{{item}}">{{item}}</a></li> 
+	<li><a class="secondarymenu" href="/{{prefix}}/archive/{{item}}">{{item}}</a></li> 
 {% endfor %}
 </ul> </div>
 
@@ -75,6 +109,6 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 		<li class="abs"><a id="tr1" href={{lg2link}}><img src="{{lg2}}"></a></li>
 		<li class="abs"><a id="tr2" href={{lg1link}}><img src="{{lg1}}"></a></li></ul>
 
-	<script type="text/javascript" src="media/hl.js"></script>
-	<script type="text/javascript" src="media/transl.js"></script>
+	<script type="text/javascript" src="media/js/hl.js"></script>
+	<script type="text/javascript" src="media/js/transl.js"></script>
 {% endblock %}

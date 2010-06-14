@@ -294,7 +294,7 @@ a:hover {
 .page ul {
 	list-style: none;
 	padding: 0px;
-	margin: 0 0 15px 0;
+	margin: 0 0 0px 0;
 }
 
 .page li {
@@ -308,6 +308,7 @@ a:hover {
 .page a{
 		font-weight: bold;
 		font-size: 12px;
+		color:#bb0000;
 }
 .page a:hover{
 	text-decoration: underline;
@@ -408,11 +409,35 @@ color: #181818;
 	color:#bb0000;
 }
 
+.entry img {
+	max-width: 400px;
+	
+}
+
 .table {
 	padding-left: 100px;
 	padding-top: 40px;
 }
 
+.rates{
+	margin-left:30px;
+}
+
+
+
+
+.ad{
+	background: yellow;
+	color: #bb0000;
+}
+.rates td {
+	width:100px;
+	text-align:center;
+}
+
+.bold {
+	font-weight:bold;
+}
 .datecol {
 	width: 80px;
 	color: #bb0000;
@@ -497,6 +522,30 @@ overflow-y: scroll;
 	text-align: justify;
 }
 
+#memberad {
+	background:#696969;
+	padding: 0px 0px 20px 20px;
+			line-height: 12px;
+	width: 180px;
+	color:white;
+}
+#memberad h2 {
+	font-size:16px;
+	font-style:bold;
+	margin-bottom:-20px;
+	margin-left:-16px;
+	color:white;
+
+}
+#memberad ul{
+	line-height: 100%;
+}
+#memberad ul li{
+	list-style-type: disc;
+	line-height: 100%;
+
+	
+}
 /*#sidebar a {
 	border: none;
 	color:#181818;
@@ -515,7 +564,57 @@ overflow-y: scroll;
 	background: #999999;
 }
 
+.linkcat {
+	padding-top:15px;
+}
+.links {
+	
+	display:none;
+}
+.links a{
+	
+	color:#464646;
+	weight: normal;
+}
 
+#memberad a {
+	font-size:18px;
+	text-align: center;
+	background-color:#bb0000;
+	padding:5px;
+	width:200px;
+	color: white;
+	
+}
+#memberad a:hover {
+	/*text-decoration: underline;*/
+	background: #bb0000;
+}
+
+
+.adlist img:hover{
+	background:#696969;
+}
+
+.adlist img{
+	border:none;
+	padding:3px;
+	margin:7px 5px;
+	display:inline;
+	float:left;
+	height:50px;
+	width:200px;
+	
+}
+
+.singlead {
+	border: 1px solid black;
+}
+.tleft img{
+	border: 1px solid black;
+	width:200px;
+	height: 400px;
+}
 /* Footer */
 
 #footer-wrapper {

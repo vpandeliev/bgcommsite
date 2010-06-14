@@ -6,6 +6,7 @@ from bgcomm.posts.models import *
 from django.template import loader, RequestContext
 from django.core.mail import send_mail
 import datetime
+import random
 #from bgcomm.models import *
 
 def index(response):
@@ -52,6 +53,14 @@ def render_events(request, lg):
 	event = Event.objects.all()
 	return render_to_response("events.html", {'years':a_years(), 'ads':update_ads(),'events':event}, context_instance = RequestContext(request, processors=[langcheck(lg)]))
 
+def render_ads(request, lg):
+	ads = Ad.objects.all()
+	return render_to_response("ads.html", {'years':a_years(), 'ads':update_ads(),'adverts':ads}, context_instance = RequestContext(request, processors=[langcheck(lg)]))
+
+def render_ad(request, lg, pid):
+	ad = Ad.objects.get(id=pid)
+	return render_to_response("ad.html", {'years':a_years(), 'ads':update_ads(),'item':ad}, context_instance = RequestContext(request, processors=[langcheck(lg)]))
+
 
 def a_years():
 	archive_years = []
@@ -73,9 +82,30 @@ def render_archive(request, lg, year):
 def render_thanks(request, lg):
 	return render_to_response("thanks.html", {'years':a_years(), 'ads':update_ads()}, context_instance = RequestContext(request, processors=[langcheck(lg)]))
 	
+def randomize(total, select):
+	retlist = []
+	if total>0:
+		if total<=select:
+			retlist = range(select)
+		else:	
+			while select>0:
+				select-=1;
+				r = -1
+				while True:
+					r = random.randint(0, total-1)
+					if r not in retlist:
+						break
+				retlist.append(r)
+	return retlist
+
+	
 def update_ads():
 	ads = Ad.objects.all().exclude(expirydate__lt=datetime.datetime.now()).order_by("titlebg").order_by("-image")
-	return ads
+	dice = randomize(ads.count(), 3)
+	retads = []
+	for x in dice:
+		retads.append(ads[x])
+	return retads
 
 def error_gen(lg):
 	if lg=="bg":
@@ -118,11 +148,11 @@ def linksbg(request, lg):
 	
 	r = langcheck(lg)
 	if r==menu_bg:
-		categories = Category.objects.filter(bg=1)
+		categories = Category.objects.filter(bg=True)
 	elif r==menu_en:
-		categories = Category.objects.filter(en=1)
+		categories = Category.objects.filter(en=True)
 	elif r==menu_fr:
-		categories = Category.objects.filter(fr=1)
+		categories = Category.objects.filter(fr=True)
 	else:
 		categories = None
 

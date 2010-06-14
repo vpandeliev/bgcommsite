@@ -54,7 +54,7 @@
 				<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 				<div class="entry">
 					{{ item.first_paragraph_bg|safe}} 
-					<p><a href="/bg/posts/{{item.id}}" class="links">{{ more }}</a></p>
+					<p><a href="/bg/posts/{{item.id}}" class="links">{{more}}</a></p>
 				</div>
 				</div>
 <!--							
@@ -90,7 +90,7 @@
 			{% endif %}
 						{% endfor %}
 	</p>
-	<script type="text/javascript" src="media/fadepoll.js"></script>
+	<script type="text/javascript" src="media/js/fadepoll.js"></script>
 	
 	{% endblock %}
 	

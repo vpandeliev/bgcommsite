@@ -8,53 +8,66 @@
 {% if bg %}
 	<h1> Полезни връзки по категория </h1>
 	<br>
+	<div style="padding: 30px 30px 30px">
 	{% for item in cats%}
 	{%ifnotequal item.titlebg "" %}
 	
-	<h2> {{item.titlebg}} </h2>
-	<ul>
+	
+	<h2 class="linkcat">{{item.titlebg}} ({{item.links.count}})</h2>
+	<ul class="links">
 		{% for link in item.links%}
 		{%ifnotequal link.titlebg "" %}
 		<li><a href="{{link.link}}" target="blank"> {{link.titlebg}}</a> </li>
 		{%endifnotequal%}
 		{%endfor%}
-	</ul>	
+	</ul>
+	
 	{%endifnotequal%}
-	{%endfor%}		
+	{%endfor%}	
+	</div>
+	<script type="text/javascript" src="media/js/collapse.js"></script>	
 {% else %}
 
 {% if en %}
 <h1> Useful links by category </h1>
 <br>
 {% for item in cats%}
-{%ifnotequal item.titleen "" %}
-<h2> {{item.titleen}} </h2>
-<ul>
+{%ifnotequal item.titlebg "" %}
+
+<div style="padding-bottom:15px">
+<h2 class="linkcat">{{item.titleen}} ({{item.links.count}})</h2>
+<ul class="links">
 	{% for link in item.links%}
-	{%ifnotequal link.titleen "" %}
+	{%ifnotequal link.titlebg "" %}
 	<li><a href="{{link.link}}" target="blank"> {{link.titleen}}</a> </li>
 	{%endifnotequal%}
 	{%endfor%}
-</ul>	
+</ul>
+</div>
 {%endifnotequal%}
-{%endfor%}
+{%endfor%}	
+<script type="text/javascript" src="media/js/collapse.js"></script>	
 
 {% else %}
 <h1> Les links utiles par categorie </h1>
 <br>
 {% for item in cats%}
-{%ifnotequal item.titleen "" %}
-<h2> {{item.titlefr}} </h2>
-<ul>
+{%ifnotequal item.titlebg "" %}
+
+<div style="padding-bottom:15px">
+<h2 class="linkcat">{{item.titlefr}} ({{item.links.count}})</h2>
+<ul class="links">
 	{% for link in item.links%}
-	{%ifnotequal link.titlefr "" %}
+	{%ifnotequal link.titlebg "" %}
 	<li><a href="{{link.link}}" target="blank"> {{link.titlefr}}</a> </li>
 	{%endifnotequal%}
 	{%endfor%}
-</ul>	
+</ul>
+</div>
 {%endifnotequal%}
+{%endfor%}	
+<script type="text/javascript" src="media/js/collapse.js"></script>	
 
-{%endfor%}
 {%endif%}
 
 {%endif%}

@@ -1,24 +1,49 @@
 # -*- coding: iso-8859-15 -*-
 from django.db import models
 from tinymce import models as tinymce_models
-
-
 import datetime
+import os
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
+class OverwriteStorage(FileSystemStorage):
+    
+    def get_available_name(self, name):
+        """
+        Returns a filename that's free on the target storage system, and
+        available for new content to be written to.
+        """
+        # If the filename already exists, remove it as if it was a true file system
+        if self.exists(name):
+            os.remove(os.path.join(settings.MEDIA_ROOT, name))
+        return name
 
 class Person(models.Model):
 	namebg = models.CharField('Име (кирилица)',max_length=140)
 	nameen = models.CharField('Име (латиница)',max_length=140)
-	posbg = models.CharField('Длъжност (BG) (optional)', max_length=140)
-	posen = models.CharField('Длъжност (EN) (optional)', max_length=140, blank=True)
-	posfr = models.CharField('Длъжност (FR) (optional)', max_length=140, blank=True)
-	contact_email = models.EmailField('Контакт за сведение (e-mail) (optional)', blank=True)
-	contact_phone = models.CharField('Контакт за сведение (phone) (optional)', blank=True, max_length=30)
+	contact_email = models.EmailField('Контакт (e-mail) (optional)', blank=True)
+	contact_phone = models.CharField('Контакт (phone) (optional)', blank=True, max_length=30)
 	
 	def __unicode__(self):
-	        return u'%s - %s' % (self.namebg, self.posbg)
+	        return u'%s' % (self.namebg)
+
+class Member(Person):
+	member_until = models.DateField('Член до', default="2010-12-31")
+	def __unicode__(self):
+	        return u'Member %s - %s' % (self.nameen, self.member_until.year)
+	
+class Executive(Person):
+	posbg = models.CharField('Длъжност (BG)', max_length=140)
+	posen = models.CharField('Длъжност (EN)', max_length=140)
+	posfr = models.CharField('Длъжност (FR)', max_length=140, blank=True)
+	def __unicode__(self):
+	        return u'Executive %s - %s' % (self.nameen, self.posen)
+
+
 
 class Post(models.Model):
 	author = models.CharField('Author', max_length=140)
+	image = models.FileField('Картинка',upload_to='postimgs', storage=OverwriteStorage())
 	titlebg = models.CharField('Title (BG)',max_length=140)
 	textbg = tinymce_models.HTMLField('Text (BG)')
 	titleen = models.CharField('Title (EN)',max_length=140)
@@ -48,17 +73,13 @@ class Post(models.Model):
 
 
 class Category(models.Model):
-	titlebg = models.CharField('Категория (BG)',max_length=140, blank=True)
+	titlebg = models.CharField('Категория (BG)',max_length=140)
 	titleen = models.CharField('Категория (EN)',max_length=140, blank=True)
 	titlefr = models.CharField('Категория (FR)',max_length=140, blank=True)
 	
-	CHOICES = (
-        (1, 'Достъпна'),
-        (0, 'Недостъпна'),
-    )
-	bg = models.IntegerField("На български", max_length=1, choices=CHOICES)
-	en = models.IntegerField("На английски", max_length=1, choices=CHOICES)
-	fr = models.IntegerField("На френски", max_length=1, choices=CHOICES)
+	bg = models.BooleanField("На български", default=True)
+	en = models.BooleanField("На английски", default=True)
+	fr = models.BooleanField("На френски", default=True)
 	def __unicode__(self):
 		if self.titlebg != "":
 			return u'%s' % (self.titlebg)
@@ -67,7 +88,7 @@ class Category(models.Model):
 		elif self.titlefr != "":
 			return u'%s' % (self.titlefr)
 		else:
-			return u'%s' % ("Please enter at least one category title!")
+			return u''
 		
 
 	def links(self):
@@ -112,18 +133,37 @@ class Poll(models.Model):
 			s = ''
 		return u'%s - %s: %s %s' % (self.name, self.date, r, s)
 
+
+class Cost(models.Model):
+	value = models.IntegerField('$')
+	def __unicode__(self):
+		return u'%s' % (self.value)
+
+class TicketType(models.Model):
+	namebg = models.CharField('Ticket Type (BG)',max_length=140)
+	nameen = models.CharField('Ticket Type (EN)',max_length=140)
+	namefr = models.CharField('Ticket Type (FR)',max_length=140)
+	def __unicode__(self):
+		return u'%s' % (self.namebg)
+	
+
+
 class Price(models.Model):
-	category = models.CharField('Category',max_length=140)
-	cost = models.IntegerField('Price $')
+	category = models.ForeignKey(TicketType)
+	cost = models.ForeignKey(Cost)
 	
 	
 	def __unicode__(self):
 		"""docstring for __unicode__"""
-		return u'%s - %s$' % (self.category, self.cost)
+		return u'%s - %s$' % (self.category.namebg, self.cost)
+
+
 		
 class Event(models.Model):
 	namebg = models.CharField('Title (BG)',max_length=140)
+	
 	descriptionbg = tinymce_models.HTMLField('Text (BG)')
+	image = models.FileField('Картинка',upload_to='eventimgs', storage=OverwriteStorage())
 	nameen = models.CharField('Title (EN)',max_length=140)
 	descriptionen = tinymce_models.HTMLField('Text (EN)')
 	namefr = models.CharField('Title (FR)',max_length=140)
@@ -143,10 +183,10 @@ class Ad(models.Model):
 	titleen = models.CharField('Заглавие (EN)', max_length=140)
 	titlefr = models.CharField('Заглавие (FR)', max_length=140)
 	location = models.CharField('Aдрес (на латиница) (optional)', max_length=400, blank=True)
-	image = models.FileField('Картинка (качете в /ads/)',upload_to='ads', blank=True)
-	descriptionbg = models.CharField('Текст (BG)', max_length=3000)
-	descriptionen = models.CharField('Текст (EN)', max_length=3000)
-	descriptionfr = models.CharField('Текст (FR)', max_length=3000)
+	image = models.FileField('Картинка',upload_to='ads', storage=OverwriteStorage())
+	descriptionbg = tinymce_models.HTMLField('Текст (BG)')
+	descriptionen = tinymce_models.HTMLField('Текст (EN)')
+	descriptionfr = tinymce_models.HTMLField('Текст (FR)')
 	contact_name = models.CharField('Контакт за сведение (име на латиница)', blank=True, max_length=50)
 	contact_email = models.EmailField('Контакт за сведение (e-mail) (optional)', blank=True)
 	contact_phone = models.CharField('Контакт за сведение (phone) (optional)', blank=True, max_length=30)
