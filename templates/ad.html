@@ -6,17 +6,42 @@
 <div class="page">
 
 {% if bg %}
-	<h1> Реклама </h1>
-	<br>
-	
-<table class="singlead">
+<br/>
 
-<tr class="ttitle"><td>{{item.titlebg}}</td></tr>
-<tr>
-	<td class="tleft"><img src="/media/ads/Disney-EWS42.jpg"></td>
-	<td class="tright"><p>POJjnlcjkdnclskjdvnlsdkjvnsldjkvnsldfjkvnsldjvnsldkjvnsldkjfvnslkdjnv</p></td>
-</tr>
-<tr></tr>
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="/media/{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titlebg}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionbg|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">За контакти: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Телефон: {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Адрес: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%endifnotequal%}
+
+
 </table>
 			
 {%else%}	

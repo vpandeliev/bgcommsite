@@ -183,7 +183,9 @@ class Ad(models.Model):
 	titleen = models.CharField('Заглавие (EN)', max_length=140)
 	titlefr = models.CharField('Заглавие (FR)', max_length=140)
 	location = models.CharField('Aдрес (на латиница) (optional)', max_length=400, blank=True)
-	image = models.FileField('Картинка',upload_to='ads', storage=OverwriteStorage())
+	image = models.FileField('Банер',upload_to='ads', storage=OverwriteStorage())
+	largeimage = models.FileField('Графика',upload_to='ads', blank=True,storage=OverwriteStorage())
+	justimage = models.BooleanField('Рекламата се състои само от графиката')
 	descriptionbg = tinymce_models.HTMLField('Текст (BG)')
 	descriptionen = tinymce_models.HTMLField('Текст (EN)')
 	descriptionfr = tinymce_models.HTMLField('Текст (FR)')
@@ -191,6 +193,6 @@ class Ad(models.Model):
 	contact_email = models.EmailField('Контакт за сведение (e-mail) (optional)', blank=True)
 	contact_phone = models.CharField('Контакт за сведение (phone) (optional)', blank=True, max_length=30)
 	expirydate = models.DateField('Платена до дата')
-	link = models.URLField('URL')
+	link = models.URLField('URL', blank=True)
 	def __unicode__(self):
 		return u'%s - valid until %s' % (self.titlebg, self.expirydate)

@@ -12,7 +12,13 @@
 </p>
 <p class="adlist">	
 {% for ad in adverts %}
+{%ifequal ad.link ""%}
+<a target="blank" href="/{{prefix}}/ads/{{ad.id}}"><img src="/media/{{ad.image}}"></a>
+{%else%}
 <a target="blank" href="{{ad.link}}"><img src="/media/{{ad.image}}"></a>
+{%endifequal%}
+
+
 {%endfor%}			
 </p>
 {%else%}	

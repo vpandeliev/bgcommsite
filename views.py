@@ -86,7 +86,7 @@ def randomize(total, select):
 	retlist = []
 	if total>0:
 		if total<=select:
-			retlist = range(select)
+			retlist = range(total)
 		else:	
 			while select>0:
 				select-=1;
@@ -103,8 +103,9 @@ def update_ads():
 	ads = Ad.objects.all().exclude(expirydate__lt=datetime.datetime.now()).order_by("titlebg").order_by("-image")
 	dice = randomize(ads.count(), 3)
 	retads = []
-	for x in dice:
-		retads.append(ads[x])
+	if ads.count > 0:
+		for x in dice:
+			retads.append(ads[x])
 	return retads
 
 def error_gen(lg):

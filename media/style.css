@@ -523,7 +523,7 @@ overflow-y: scroll;
 }
 
 #memberad {
-	background:#696969;
+	background:#000000;
 	padding: 0px 0px 20px 20px;
 			line-height: 12px;
 	width: 180px;
@@ -609,13 +609,44 @@ overflow-y: scroll;
 
 .singlead {
 	border: 1px solid black;
+	width:640px;
+	padding:20px;
+	background:#bb0000;
+	
 }
 .tleft img{
 	border: 1px solid black;
-	width:200px;
+	width:250px;
 	height: 400px;
+	vertical-align:bottom;
+}
+.tmain {
+	height:294px;
+}
+
+.tright {
+	background:#ffffff;
+	color:#464646;
+	vertical-align: center;
+	border: 1px solid black;
+/*	width:400px;*/
+	text-align:justify;
+}
+.tcenter{
+	text-align:center;
+}
+.tright ul{
+	margin-left:30px;
+}
+.tright p{
+	margin:10px;
+}
+.tright li{
+	list-style:disc;
 }
 /* Footer */
+
+
 
 #footer-wrapper {
 }
