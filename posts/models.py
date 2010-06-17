@@ -29,6 +29,7 @@ class Person(models.Model):
 
 class Member(Person):
 	member_until = models.DateField('Член до', default="2010-12-31")
+	paid = models.BooleanField('Платено', default=False)
 	def __unicode__(self):
 	        return u'Member %s - %s' % (self.nameen, self.member_until.year)
 	
@@ -43,7 +44,7 @@ class Executive(Person):
 
 class Post(models.Model):
 	author = models.CharField('Author', max_length=140)
-	image = models.FileField('Картинка',upload_to='postimgs', storage=OverwriteStorage())
+	image = models.FileField('Картинка',upload_to='postimgs', storage=OverwriteStorage(), blank=True)
 	titlebg = models.CharField('Title (BG)',max_length=140)
 	textbg = tinymce_models.HTMLField('Text (BG)')
 	titleen = models.CharField('Title (EN)',max_length=140)
@@ -163,7 +164,7 @@ class Event(models.Model):
 	namebg = models.CharField('Title (BG)',max_length=140)
 	
 	descriptionbg = tinymce_models.HTMLField('Text (BG)')
-	image = models.FileField('Картинка',upload_to='eventimgs', storage=OverwriteStorage())
+	image = models.FileField('Картинка',upload_to='eventimgs', storage=OverwriteStorage(), blank=True)
 	nameen = models.CharField('Title (EN)',max_length=140)
 	descriptionen = tinymce_models.HTMLField('Text (EN)')
 	namefr = models.CharField('Title (FR)',max_length=140)

@@ -17,7 +17,7 @@
         </ul>
     {% endif %}
 
-    <form action="/{{prefix}}/contacttt" method="post">
+    <form action="/{{prefix}}/send_message" method="post">
 		<p>{{subj}}<br/><input type="text" name="subject" value="{{subject}}"></p>
 		<p>{{email}} ({{optional}})<br/><input type="text" name="emailaddr" value="{{emailaddr}}"></p>
 		<p>{{mess}}<br/><textarea name="message" rows="10" cols="50">{{message}}</textarea></p>

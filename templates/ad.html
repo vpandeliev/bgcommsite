@@ -39,6 +39,26 @@
 
 
 	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titlebg}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionbg|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">За контакти: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Телефон: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Адрес: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
 	{%endifnotequal%}
 
 
@@ -46,17 +66,123 @@
 			
 {%else%}	
 {% if en %}
-<h1> Bulgarian Students' Experimental Theatre of Ottawa - BURETO </h1>
-<br>
-<h2> Constitution </h2>
-<p> You can read our constitution <a href="#">here</a>. </p>
+<br/>
+
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="/media/{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titleen}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionen|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contact: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Phone: {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Address: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titleen}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionen|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contact: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Phone: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Address: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
+	{%endifnotequal%}
+
+
+</table>
+
 
 {% else %}
-<h1> Theatre experimentale des etudiant(e)s d'Ottawa - BURETO</h1>
-<br>
-<h2> La constitution </h2>
-	<p> Lisez notre constitution <a href="#">ici</a>. </p>
-			
+<br/>
+
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="/media/{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titlefr}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionfr|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contacte: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Tel. {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Addresse: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">Courriel: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titlefr}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionfr|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contacte: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Tel.: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Addresse: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">Courriel: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
+	{%endifnotequal%}
+
+
+</table>
 
 
 

@@ -12,9 +12,16 @@ try:
 except ImportError:
     print u'File settings_local.py is not found. Continuing with production settings.'
 
-
+MAX_POSTS = 5
+MAX_EVENTS = 3
+SIDEBAR_ADS = 3
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+FEEDBACK_EMAILS = ["bulgariancommunity@yahoo.ca","vpandeliev@gmail.com"]
+MEMBERSHIP_EMAILS = ["bulgariancommunity@yahoo.ca"]
+WEBMASTER_EMAILS = ["vpandeliev@gmail.com",]
+
+
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -106,10 +113,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-	'django.core.context_processors.request',
-	'bgcomm.dict.menu_bg',
-	'bgcomm.dict.menu_en',
-	'bgcomm.dict.menu_fr',
+		'django.core.context_processors.request',
+		'bgcomm.dict.menu_bg',
+		'bgcomm.dict.menu_en',
+		'bgcomm.dict.menu_fr',
+		'bgcomm.views.ad_year_context',
 #	'sphene.community.context_processors.navigation',
     
 )

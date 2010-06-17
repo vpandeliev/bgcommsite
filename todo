@@ -15,20 +15,15 @@ Password: hubavarodina
 
 
 TODO:
+- 
 - landing page
 - foundation pages
-- add image upload support to posts and events
-- Events - add google maps support
+- Events - add google maps support - need domain
 - Database - add keeping track of members interface
 - member thanks page
-- error checking for empty database!!
-- build list-of-ads interface
-- build single ad view
 - surveys
-- Membership toolbar button - appearance? e-mail?
 - google analytics
-- samplead template
-
+- samplead
 
 Началната страница дава избор - BG/EN/FR и също така вход към дружеството или фондацията.
 Спинери - Сайт + Език

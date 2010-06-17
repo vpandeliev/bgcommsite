@@ -30,6 +30,7 @@ h1 {
 
 h2 {
 	font-size: 2.0em;
+	margin-top: 20px;
 }
 
 h3 {
@@ -290,6 +291,7 @@ a:hover {
 .page {
 	padding-left: 20px;
 	padding-top: 10px;
+	text-align:justify;
 }
 .page ul {
 	list-style: none;
@@ -352,7 +354,7 @@ color: #181818;
 	/*height: 38px;*/
 	padding: 12px 0 0 20px;
 	letter-spacing: -.5px;
-	color: #E3295B;
+	color: #bb0000;
 }
 
 .post h1 {
@@ -410,7 +412,8 @@ color: #181818;
 }
 
 .entry img {
-	max-width: 400px;
+	
+	max-width: 600px;
 	
 }
 
@@ -567,7 +570,7 @@ overflow-y: scroll;
 .linkcat {
 	padding-top:15px;
 }
-.links {
+.linksss {
 	
 	display:none;
 }
@@ -626,6 +629,7 @@ overflow-y: scroll;
 
 .tright {
 	background:#ffffff;
+	min-width:328px;
 	color:#464646;
 	vertical-align: center;
 	border: 1px solid black;

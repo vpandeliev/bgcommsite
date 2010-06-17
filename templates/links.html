@@ -14,7 +14,7 @@
 	
 	
 	<h2 class="linkcat">{{item.titlebg}} ({{item.links.count}})</h2>
-	<ul class="links">
+	<ul class="linksss">
 		{% for link in item.links%}
 		{%ifnotequal link.titlebg "" %}
 		<li><a href="{{link.link}}" target="blank"> {{link.titlebg}}</a> </li>
@@ -36,7 +36,7 @@
 
 <div style="padding-bottom:15px">
 <h2 class="linkcat">{{item.titleen}} ({{item.links.count}})</h2>
-<ul class="links">
+<ul class="linksss">
 	{% for link in item.links%}
 	{%ifnotequal link.titlebg "" %}
 	<li><a href="{{link.link}}" target="blank"> {{link.titleen}}</a> </li>
@@ -56,7 +56,7 @@
 
 <div style="padding-bottom:15px">
 <h2 class="linkcat">{{item.titlefr}} ({{item.links.count}})</h2>
-<ul class="links">
+<ul class="linksss">
 	{% for link in item.links%}
 	{%ifnotequal link.titlebg "" %}
 	<li><a href="{{link.link}}" target="blank"> {{link.titlefr}}</a> </li>

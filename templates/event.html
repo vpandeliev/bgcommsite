@@ -6,7 +6,7 @@
 	<p>
 			{% if bg %}
 			    <div class="post" style="width:640px;">
-				<h2 class="title"><a href="/bg/events/{{item.id}}">{{ item.namebg }}</a></h2>
+				<h2 class="title">{{ item.namebg }}</h2>
 				{%ifequal item.date.time.minute 0%}
 				<p class="date"> На {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
 				{%else%}
@@ -14,6 +14,7 @@
 				{%endifequal%}
 				
 				<div class="entry">
+					<img src="/media/{{item.image}}"></img>
 					<p> {{ item.descriptionbg|safe }}</p>
 				<h1> {{address}}</h1>
 				<p> {{item.location}} </p>

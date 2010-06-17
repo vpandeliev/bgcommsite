@@ -1,43 +1,28 @@
 # -*- coding: iso-8859-15 -*-
 from bgcomm.posts.models import *
+from bgcomm.classes import SideMenuItem
 
-
-class SideMenuItem():
-    def __init__(self, bg, en, fr, link):
-        self.bg = bg
-        self.en = en
-        self.fr = fr
-        self.link = link
-
-	def text(lg):
-		if lg=="bg":
-			return self.bg
-		elif lg=="en":
-			return self.en
-		elif lg=="fr":
-			return self.fr
-		else:
-			return ""
-		
-affiliates = [
+SIDE_MENU_ITEMS = [
 SideMenuItem("Танцов състав 'Родина'","Rodina Dance Troupe", "Le danse Rodina","rodina"),
 SideMenuItem("БУРЕТО","Student theatre BURETO", "Theatre d'etudiants BURETO","bureto"),
 SideMenuItem("Посолство","Embassy", "L'embassade","embassy"),
+SideMenuItem("Църква 'Христос спасител'","'Christ the Saviour Church", "L'eglise de Christ-Sauveur","church"),
 SideMenuItem("Българска Фондация в Отава","Ottawa Region Bulgarian Foundation", "La Fondation Bulgare d'Outaouai","foundation"),
 ]
 
+		
+
 
 def menu_bg(request):
-	return menus[0]
+	return bgmenu
 def menu_en(request):
-	return menus[1]
+	return enmenu
 def menu_fr(request):
-	return menus[2]
+	return frmenu
 
 
 
 bgmenu = {
-"aff": affiliates,
 "affiliates": "Афилиати",
 "title": "Българска Общност - NCRBC",
 "bg": True,
@@ -82,7 +67,6 @@ bgmenu = {
 
 }
 enmenu = {
-"aff": affiliates,
 "affiliates": "Affiliates",
 "title": "Bulgarian Community - NCRBC",
 "bg": False,
@@ -126,7 +110,6 @@ enmenu = {
 "cost": "Cost",
 }
 frmenu = {
-"aff": affiliates,
 "affiliates": "Amis",
 "title": "Comminaute Bulgare - NCRBC",
 "bg": False,
@@ -169,4 +152,3 @@ frmenu = {
 "adtitle": "Aidez les firmes bulgares:",
 "cost": "Prix",
 }
-menus = [bgmenu, enmenu, frmenu]
