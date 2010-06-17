@@ -56,6 +56,8 @@ TIME_ZONE = 'America/Toronto'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+LOCKDOWN_PASSWORD = ('rodina')
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -96,7 +98,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.middleware.doc.XViewMiddleware'
+		'django.middleware.doc.XViewMiddleware',
+		'lockdown.middleware.LockdownMiddleware',
+	
 )
 
 ROOT_URLCONF = 'bgcomm.urls'
@@ -135,5 +139,6 @@ INSTALLED_APPS = (
 #    'sphene.sphwiki',
 	'bgcomm.posts',
 	'tinymce',	
+	'lockdown',
 	#'filebrowser',
 )

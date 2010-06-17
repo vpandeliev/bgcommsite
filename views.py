@@ -25,7 +25,8 @@ def langcheck(lg):
 
 def ad_year_context(request):
 	"""Returns the dynamically updated list of years in the archive and a random selection of banner ads"""
-	return {'years':a_years(), 'ads': update_ads(), 'aff': SIDE_MENU_ITEMS}
+	from django.conf import settings
+	return {'years':a_years(), 'ads': update_ads(), 'aff': SIDE_MENU_ITEMS, 'MEDIA_URL': settings.MEDIA_URL}
 
 
 def a_years():

@@ -13,12 +13,12 @@
 
 	{%ifnotequal item.largeimage ""%}
 	{%ifequal item.justimage 1%}
-		<img width=640 height=400 src="/media/{{item.largeimage}}">
+		<img width=640 height=400 src="{{ MEDIA_URL }}/{{item.largeimage}}">
 	{%else%}
 <table class="singlead">
 	<tr>
 		
-		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		<td class="tleft"><img src="{{ MEDIA_URL }}/{{item.largeimage}}"></td>
 		
 		<td>
 			<table>
@@ -73,12 +73,12 @@
 
 	{%ifnotequal item.largeimage ""%}
 	{%ifequal item.justimage 1%}
-		<img width=640 height=400 src="/media/{{item.largeimage}}">
+		<img width=640 height=400 src="{{ MEDIA_URL }}/{{item.largeimage}}">
 	{%else%}
 <table class="singlead">
 	<tr>
 		
-		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		<td class="tleft"><img src="{{ MEDIA_URL }}/{{item.largeimage}}"></td>
 		
 		<td>
 			<table>
@@ -133,12 +133,12 @@
 
 	{%ifnotequal item.largeimage ""%}
 	{%ifequal item.justimage 1%}
-		<img width=640 height=400 src="/media/{{item.largeimage}}">
+		<img width=640 height=400 src="{{ MEDIA_URL }}/{{item.largeimage}}">
 	{%else%}
 <table class="singlead">
 	<tr>
 		
-		<td class="tleft"><img src="/media/{{item.largeimage}}"></td>
+		<td class="tleft"><img src="{{ MEDIA_URL }}/{{item.largeimage}}"></td>
 		
 		<td>
 			<table>

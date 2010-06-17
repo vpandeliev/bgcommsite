@@ -14,7 +14,7 @@
 				{%endifequal%}
 				
 				<div class="entry">
-					<img src="/media/{{item.image}}"></img>
+					<img src="{{ MEDIA_URL }}/{{item.image}}"></img>
 					<p> {{ item.descriptionbg|safe }}</p>
 				<h1> {{address}}</h1>
 				<p> {{item.location}} </p>
@@ -47,7 +47,7 @@
 				<input type="hidden" name="currency_code" value="CAD">
 				<input type="hidden" name="button_subtype" value="services">
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-				<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
+				<input type="image" src="{{ MEDIA_URL }}/buynow{{prefix}}.jpg" border="0" name="submit">
 				</form>
 				</td><td style="padding-right:20px">
 				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -60,7 +60,7 @@
 				<input type="hidden" name="button_subtype" value="products">
 				<input type="hidden" name="add" value="1">
 				<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-				<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<input type="image" src="{{ MEDIA_URL }}/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				</form>
 			
 				</td>
@@ -123,7 +123,7 @@
 			<input type="hidden" name="currency_code" value="CAD">
 			<input type="hidden" name="button_subtype" value="services">
 			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-			<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
+			<input type="image" src="{{ MEDIA_URL }}/buynow{{prefix}}.jpg" border="0" name="submit">
 			</form>
 			</td><td style="padding-right:20px">
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -136,7 +136,7 @@
 			<input type="hidden" name="button_subtype" value="products">
 			<input type="hidden" name="add" value="1">
 			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-			<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<input type="image" src="{{ MEDIA_URL }}/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 			</form>
 		
 			</td>
@@ -191,7 +191,7 @@
 			<input type="hidden" name="currency_code" value="CAD">
 			<input type="hidden" name="button_subtype" value="services">
 			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-			<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit">
+			<input type="image" src="{{ MEDIA_URL }}/buynow{{prefix}}.jpg" border="0" name="submit">
 			</form>
 			</td><td style="padding-right:20px">
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -204,7 +204,7 @@
 			<input type="hidden" name="button_subtype" value="products">
 			<input type="hidden" name="add" value="1">
 			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-			<input type="image" src="media/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<input type="image" src="{{ MEDIA_URL }}/cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 			</form>
 		
 			</td>

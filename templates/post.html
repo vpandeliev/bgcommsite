@@ -9,7 +9,7 @@
 				<h2 class="title"><a href="/bg/posts/{{item.id}}">{{ item.titlebg }}</a></h2>
 				<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 				<div class="entry">
-					<img src="/media/{{item.image}}"></img>
+					<img src="{{ MEDIA_URL }}/{{item.image}}"></img>
 					{{ item.textbg|safe }}
 					<p><a href="/bg" class="links">{{ back }}</a> </p>
 				</div>

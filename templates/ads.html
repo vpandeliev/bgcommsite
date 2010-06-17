@@ -13,9 +13,9 @@
 <p class="adlist">	
 {% for ad in adverts %}
 {%ifequal ad.link ""%}
-<a target="blank" href="/{{prefix}}/ads/{{ad.id}}"><img src="/media/{{ad.image}}"></a>
+<a target="blank" href="/{{prefix}}/ads/{{ad.id}}"><img src="{{ MEDIA_URL }}/{{ad.image}}"></a>
 {%else%}
-<a target="blank" href="{{ad.link}}"><img src="/media/{{ad.image}}"></a>
+<a target="blank" href="{{ad.link}}"><img src="{{ MEDIA_URL }}/{{ad.image}}"></a>
 {%endifequal%}
 
 

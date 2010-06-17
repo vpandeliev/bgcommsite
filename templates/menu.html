@@ -60,9 +60,9 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 <ul>
 {%for item in ads%}
 {%ifequal item.link ""%}
-<li><a href="/{{prefix}}/ads/{{item.id}}"><img style="height:50px; width:200px" src="media/{{item.image}}"></img></a></li>
+<li><a href="/{{prefix}}/ads/{{item.id}}"><img style="height:50px; width:200px" src="{{ MEDIA_URL }}/{{item.image}}"></img></a></li>
 {%else%}
-<li><a href="{{item.link}}"><img style="height:50px; width:200px" src="media/{{item.image}}"></img></a></li>
+<li><a href="{{item.link}}"><img style="height:50px; width:200px" src="{{ MEDIA_URL }}/{{item.image}}"></img></a></li>
 {%endifequal%}
 {%endfor%}
 <li style="height:16px"><a class="secondarymenu" href="/{{prefix}}/ads" >{{allads}}</a></li>
@@ -71,7 +71,7 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 <!--><li> <h2>{{sps}}</h2> {{sponsors}}
 	<ul>
 		
-	<li><img src="/media/gatineau.jpg"></img><img src="/media/ottawa.jpg"></img></li> </ul> </li>
+	<li><img src="{{ MEDIA_URL }}/gatineau.jpg"></img><img src="{{ MEDIA_URL }}/ottawa.jpg"></img></li> </ul> </li>
 	--> 
 
 <div class="memberad">	<li><center>
@@ -83,7 +83,7 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 	<input type="hidden" name="no_note" value="0">
 	<input type="hidden" name="currency_code" value="CAD">
 	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-	<input type="image" src="media/buynow{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<input type="image" src="{{ MEDIA_URL }}/buynow{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 	
 	</form>
 	</center>
@@ -107,9 +107,9 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 	<li><a href="/{{ prefix }}/photos">{{ photos }}</a></li>
 	<li><a href="/{{ prefix }}/contact">{{ contact }}</a></li>
 	<li><a href="/{{ prefix }}/forum">{{ forum }}</a></li>
-		<li class="abs"><a id="tr1" href={{lg2link}}><img src="{{lg2}}"></a></li>
-		<li class="abs"><a id="tr2" href={{lg1link}}><img src="{{lg1}}"></a></li></ul>
+		<li class="abs"><a id="tr1" href={{lg2link}}><img src="{{ MEDIA_URL }}/{{lg2}}"></a></li>
+		<li class="abs"><a id="tr2" href={{lg1link}}><img src="{{ MEDIA_URL }}/{{lg1}}"></a></li></ul>
 
-	<script type="text/javascript" src="media/js/hl.js"></script>
-	<script type="text/javascript" src="media/js/transl.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}/js/hl.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}/js/transl.js"></script>
 {% endblock %}
